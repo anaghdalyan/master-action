@@ -13,4 +13,4 @@ jobs:
       - name: Check out repository
         uses: action/checkout@v3
       - name: Run a one-line script
-        run: echo "Hello from a self-hosted runner! $(hostname -i)"  
+        run: echo $(hostname -i)"  
