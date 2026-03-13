@@ -1,17 +1,16 @@
-name: Job Dependency Example
+name: Self-hosted Runner Workflow
 
-on: push
+on:
+  push:
+    branches:
+      - main 
+
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  example-job:
+    runs-on: self-hosted
     steps:
-      - name: Build steps
-        run: echo "Building the project..."
-
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Test steps
-        run: echo "Running tests..."
+      - name: Check out repository
+        uses: action/checkout@v3
+      - name: Run a one-line script
+        run: echo "Hello from a self-hosted runner! $(hostname -i)"  
