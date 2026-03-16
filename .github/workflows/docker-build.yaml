@@ -11,7 +11,7 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
+      - name: Checkout repository
         uses: actions/checkout@v4
       - name: login to DockerHub
         uses: docker/login-action@v3
@@ -21,9 +21,9 @@ jobs:
       - name: Build Docker image
         
         run: |
-          docker build -t {{ secrets.DOCKER_IMAGE_NAME }}/docker-anaghdalyan:latest .
+          docker build -t {{ secrets.DOCKER_USERNAME }}/docker-anaghdalyan:latest .
   
       - name: push Docker image
         run: |
-          docker push {{ secrets.DOCKER_IMAGE_NAME }}/docker-anaghdalyan:latest
+          docker push {{ secrets.DOCKER_USERNAME }}/docker-anaghdalyan:latest
       
